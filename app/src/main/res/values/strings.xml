@@ -1,3 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">FSmoking</string>
+    <string name="tagline">Your smoke-free journey starts here</string>
+
+    <!-- Onboarding -->
+    <string name="onb_step1_title">When did you quit?</string>
+    <string name="onb_step1_desc">Set your quit date and time</string>
+    <string name="onb_step2_title">Your smoking habit</string>
+    <string name="onb_step2_desc">Help us personalise your experience</string>
+    <string name="onb_step3_title">Cost per pack</string>
+    <string name="onb_step3_desc">We\'ll calculate your savings</string>
+    <string name="onb_next">Next →</string>
+    <string name="onb_back">← Back</string>
+    <string name="onb_start">🚀 Start My Journey</string>
+
+    <!-- Nav -->
+    <string name="nav_home">Home</string>
+    <string name="nav_sos">SOS</string>
+    <string name="nav_health">Health</string>
+    <string name="nav_badges">Badges</string>
+    <string name="nav_settings">Settings</string>
 </resources>
