@@ -54,4 +54,6 @@ dependencies {
 
     // RecyclerView (history list)
     implementation("androidx.recyclerview:recyclerview:1.3.2")
+
+    implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
 }

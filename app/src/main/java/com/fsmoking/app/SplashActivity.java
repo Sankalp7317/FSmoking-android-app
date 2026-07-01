@@ -7,7 +7,7 @@ import android.os.Looper;
 import android.view.animation.AlphaAnimation;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import com.fsmoking.app.utils.AppStorage;
+import com.fsmoking.app.repository.SettingsRepository;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -16,7 +16,6 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        // Fade in animation
         TextView logo    = findViewById(R.id.tv_logo);
         TextView appName = findViewById(R.id.tv_app_name);
         TextView tagline = findViewById(R.id.tv_tagline);
@@ -27,15 +26,11 @@ public class SplashActivity extends AppCompatActivity {
         appName.startAnimation(fadeIn);
         tagline.startAnimation(fadeIn);
 
-        // After 2 seconds go to next screen
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            AppStorage storage = new AppStorage(this);
-            Intent intent;
-            if (storage.hasUserData()) {
-                intent = new Intent(this, MainActivity.class);
-            } else {
-                intent = new Intent(this, OnboardingActivity.class);
-            }
+            SettingsRepository settings = new SettingsRepository(this);
+            Intent intent = settings.isOnboardingDone()
+                    ? new Intent(this, MainActivity.class)
+                    : new Intent(this, OnboardingActivity.class);
             startActivity(intent);
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             finish();

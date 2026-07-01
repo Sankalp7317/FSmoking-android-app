@@ -20,4 +20,15 @@
     <string name="nav_health">Health</string>
     <string name="nav_badges">Badges</string>
     <string name="nav_settings">Settings</string>
+
+    <string name="dashboard_title">Dashboard</string>
+    <string name="smoke_free_label">Smoke-free for</string>
+    <string name="today_label">Today</string>
+    <string name="this_week_label">This Week</string>
+    <string name="this_month_label">This Month</string>
+    <string name="money_spent_today_label">Spent Today</string>
+    <string name="avg_interval_label">Avg. Time Between</string>
+    <string name="log_cigarette_fab_desc">Log a cigarette</string>
+    <string name="cigarettes_unit">cigarettes</string>
+    <string name="of_goal_format">of %1$d goal</string>
 </resources>

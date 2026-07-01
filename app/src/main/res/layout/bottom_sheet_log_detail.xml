@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:paddingBottom="40dp"
+    android:background="@color/surface">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log Cigarette"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_primary"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Mood" android:textSize="12sp" android:textColor="@color/text_secondary" android:layout_marginBottom="4dp"/>
+    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+        android:id="@+id/et_mood"
+        android:layout_width="match_parent" android:layout_height="52dp"
+        android:background="@color/surface_alt" android:paddingStart="14dp"
+        android:textSize="15sp" android:hint="e.g. Stressed, Bored, Happy"
+        android:layout_marginBottom="14dp"/>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Trigger" android:textSize="12sp" android:textColor="@color/text_secondary" android:layout_marginBottom="4dp"/>
+    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+        android:id="@+id/et_trigger"
+        android:layout_width="match_parent" android:layout_height="52dp"
+        android:background="@color/surface_alt" android:paddingStart="14dp"
+        android:textSize="15sp" android:hint="e.g. After meal, Coffee, Work break"
+        android:layout_marginBottom="14dp"/>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Location" android:textSize="12sp" android:textColor="@color/text_secondary" android:layout_marginBottom="4dp"/>
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_location"
+        android:layout_width="match_parent" android:layout_height="52dp"
+        android:background="@color/surface_alt" android:paddingStart="14dp"
+        android:textSize="15sp" android:hint="e.g. Office, Home, Outside"
+        android:layout_marginBottom="14dp"/>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Note (optional)" android:textSize="12sp" android:textColor="@color/text_secondary" android:layout_marginBottom="4dp"/>
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_note"
+        android:layout_width="match_parent" android:layout_height="80dp"
+        android:background="@color/surface_alt" android:paddingStart="14dp"
+        android:textSize="15sp" android:hint="Any additional notes..."
+        android:gravity="top|start" android:inputType="textMultiLine"
+        android:layout_marginBottom="20dp"/>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_cancel_log"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="52dp" android:text="Cancel"
+            android:layout_marginEnd="10dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_save_log"
+            android:layout_width="0dp" android:layout_weight="2"
+            android:layout_height="52dp" android:text="Save"
+            android:backgroundTint="@color/primary"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,5 +1,3 @@
-import androidx.room.Query;
-
 // Returns count of cigarettes grouped by hour (0-23) for a given period
 @Query("SELECT strftime('%H', datetime(timestamp/1000, 'unixepoch', 'localtime')) as hour, " +
         "COUNT(*) as count FROM cigarette_log " +

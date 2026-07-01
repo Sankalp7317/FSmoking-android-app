@@ -14,11 +14,10 @@
         android:padding="24dp"
         android:paddingTop="48dp">
 
-        <!-- Logo -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="🚭"
+            android:text="🚬"
             android:textSize="56sp"
             android:layout_gravity="center"
             android:layout_marginBottom="8dp"/>
@@ -42,316 +41,60 @@
             android:layout_marginTop="4dp"
             android:layout_marginBottom="28dp"/>
 
-        <!-- Progress Dots -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="horizontal"
             android:layout_marginBottom="28dp">
-
-            <View
-                android:id="@+id/dot_1"
-                android:layout_width="28dp"
-                android:layout_height="10dp"
-                android:layout_marginEnd="6dp"
-                android:background="@drawable/dot_active"/>
-
-            <View
-                android:id="@+id/dot_2"
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_marginEnd="6dp"
-                android:background="@drawable/dot_inactive"/>
-
-            <View
-                android:id="@+id/dot_3"
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:background="@drawable/dot_inactive"/>
-
+            <View android:id="@+id/dot_1" android:layout_width="28dp" android:layout_height="10dp" android:layout_marginEnd="6dp" android:background="@drawable/dot_active"/>
+            <View android:id="@+id/dot_2" android:layout_width="10dp" android:layout_height="10dp" android:background="@drawable/dot_inactive"/>
         </LinearLayout>
 
-        <!-- Step 1 - Quit Date -->
-        <LinearLayout
-            android:id="@+id/step_1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
+        <!-- Step 1: Smoking habit -->
+        <LinearLayout android:id="@+id/step_1" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
             <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:strokeColor="@color/border"
-                app:strokeWidth="1dp">
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp" app:cardElevation="0dp"
+                app:strokeColor="@color/border" app:strokeWidth="1dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Your smoking habit" android:textSize="20sp" android:textStyle="bold" android:textColor="@color/text_primary" android:layout_marginBottom="4dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Help us track your progress accurately" android:textSize="13sp" android:textColor="@color/text_secondary" android:layout_marginBottom="16dp"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cigarettes per pack" android:textSize="12sp" android:textColor="@color/text_secondary" android:layout_marginBottom="6dp"/>
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/et_pack_size" android:layout_width="match_parent" android:layout_height="52dp" android:background="@color/surface_alt" android:inputType="numberDecimal" android:paddingStart="14dp" android:textSize="16sp" android:text="20"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/onb_step1_title"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/text_primary"
-                        android:layout_marginBottom="4dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Estimated cigarettes per day" android:textSize="12sp" android:textColor="@color/text_secondary" android:layout_marginTop="12dp" android:layout_marginBottom="6dp"/>
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/et_cigs_per_day" android:layout_width="match_parent" android:layout_height="52dp" android:background="@color/surface_alt" android:inputType="numberDecimal" android:paddingStart="14dp" android:textSize="16sp" android:text="20"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/onb_step1_desc"
-                        android:textSize="13sp"
-                        android:textColor="@color/text_secondary"
-                        android:layout_marginBottom="16dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Quit Date"
-                        android:textSize="12sp"
-                        android:textColor="@color/text_secondary"
-                        android:layout_marginBottom="6dp"/>
-
-                    <TextView
-                        android:id="@+id/tv_selected_date"
-                        android:layout_width="match_parent"
-                        android:layout_height="52dp"
-                        android:background="@color/surface_alt"
-                        android:gravity="center_vertical"
-                        android:paddingStart="14dp"
-                        android:textSize="16sp"
-                        android:textColor="@color/text_primary"/>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_pick_date"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:text="📅  Pick Date"
-                        android:layout_marginTop="8dp"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Quit Time"
-                        android:textSize="12sp"
-                        android:textColor="@color/text_secondary"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginBottom="6dp"/>
-
-                    <TextView
-                        android:id="@+id/tv_selected_time"
-                        android:layout_width="match_parent"
-                        android:layout_height="52dp"
-                        android:background="@color/surface_alt"
-                        android:gravity="center_vertical"
-                        android:paddingStart="14dp"
-                        android:textSize="16sp"
-                        android:textColor="@color/text_primary"/>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_pick_time"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:text="⏰  Pick Time"
-                        android:layout_marginTop="8dp"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Daily goal (cigarettes)" android:textSize="12sp" android:textColor="@color/text_secondary" android:layout_marginTop="12dp" android:layout_marginBottom="6dp"/>
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/et_daily_goal" android:layout_width="match_parent" android:layout_height="52dp" android:background="@color/surface_alt" android:inputType="numberDecimal" android:paddingStart="14dp" android:textSize="16sp" android:text="10"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
 
-        <!-- Step 2 - Smoking Habit -->
-        <LinearLayout
-            android:id="@+id/step_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone">
-
+        <!-- Step 2: Cost -->
+        <LinearLayout android:id="@+id/step_2" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
             <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:strokeColor="@color/border"
-                app:strokeWidth="1dp">
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp" app:cardElevation="0dp"
+                app:strokeColor="@color/border" app:strokeWidth="1dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cost per pack" android:textSize="20sp" android:textStyle="bold" android:textColor="@color/text_primary" android:layout_marginBottom="4dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="We'll calculate exactly how much you're spending" android:textSize="13sp" android:textColor="@color/text_secondary" android:layout_marginBottom="16dp"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Currency symbol" android:textSize="12sp" android:textColor="@color/text_secondary" android:layout_marginBottom="6dp"/>
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/et_currency" android:layout_width="match_parent" android:layout_height="52dp" android:background="@color/surface_alt" android:paddingStart="14dp" android:textSize="16sp" android:text="₹"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/onb_step2_title"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/text_primary"
-                        android:layout_marginBottom="4dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/onb_step2_desc"
-                        android:textSize="13sp"
-                        android:textColor="@color/text_secondary"
-                        android:layout_marginBottom="16dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Cigarettes per day"
-                        android:textSize="12sp"
-                        android:textColor="@color/text_secondary"
-                        android:layout_marginBottom="6dp"/>
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_cigs_per_day"
-                        android:layout_width="match_parent"
-                        android:layout_height="52dp"
-                        android:background="@color/surface_alt"
-                        android:inputType="numberDecimal"
-                        android:paddingStart="14dp"
-                        android:textSize="16sp"
-                        android:text="20"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Cigarettes per pack"
-                        android:textSize="12sp"
-                        android:textColor="@color/text_secondary"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginBottom="6dp"/>
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_pack_size"
-                        android:layout_width="match_parent"
-                        android:layout_height="52dp"
-                        android:background="@color/surface_alt"
-                        android:inputType="numberDecimal"
-                        android:paddingStart="14dp"
-                        android:textSize="16sp"
-                        android:text="20"/>
-
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cost per pack" android:textSize="12sp" android:textColor="@color/text_secondary" android:layout_marginTop="12dp" android:layout_marginBottom="6dp"/>
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/et_pack_cost" android:layout_width="match_parent" android:layout_height="52dp" android:background="@color/surface_alt" android:inputType="numberDecimal" android:paddingStart="14dp" android:textSize="16sp" android:text="10"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
 
-        <!-- Step 3 - Cost -->
-        <LinearLayout
-            android:id="@+id/step_3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:strokeColor="@color/border"
-                app:strokeWidth="1dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/onb_step3_title"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/text_primary"
-                        android:layout_marginBottom="4dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/onb_step3_desc"
-                        android:textSize="13sp"
-                        android:textColor="@color/text_secondary"
-                        android:layout_marginBottom="16dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Currency symbol (e.g. ₹, $, €)"
-                        android:textSize="12sp"
-                        android:textColor="@color/text_secondary"
-                        android:layout_marginBottom="6dp"/>
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_currency"
-                        android:layout_width="match_parent"
-                        android:layout_height="52dp"
-                        android:background="@color/surface_alt"
-                        android:paddingStart="14dp"
-                        android:textSize="16sp"
-                        android:text="₹"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Cost per pack"
-                        android:textSize="12sp"
-                        android:textColor="@color/text_secondary"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginBottom="6dp"/>
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_pack_cost"
-                        android:layout_width="match_parent"
-                        android:layout_height="52dp"
-                        android:background="@color/surface_alt"
-                        android:inputType="numberDecimal"
-                        android:paddingStart="14dp"
-                        android:textSize="16sp"
-                        android:text="10"/>
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
-
-        <!-- Buttons -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_back"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="56dp"
-                android:text="@string/onb_back"
-                android:visibility="gone"
-                android:layout_marginEnd="10dp"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_next"
-                android:layout_width="0dp"
-                android:layout_weight="2"
-                android:layout_height="56dp"
-                android:text="@string/onb_next"
-                android:backgroundTint="@color/primary"
-                android:textColor="@color/white"/>
-
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="20dp">
+            <com.google.android.material.button.MaterialButton android:id="@+id/btn_back" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_weight="1" android:layout_height="56dp" android:text="@string/onb_back" android:visibility="gone" android:layout_marginEnd="10dp"/>
+            <com.google.android.material.button.MaterialButton android:id="@+id/btn_next" android:layout_width="0dp" android:layout_weight="2" android:layout_height="56dp" android:text="@string/onb_next" android:backgroundTint="@color/primary" android:textColor="@color/white"/>
         </LinearLayout>
 
     </LinearLayout>

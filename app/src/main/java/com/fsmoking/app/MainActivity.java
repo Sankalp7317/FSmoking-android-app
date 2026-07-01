@@ -4,43 +4,35 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.fsmoking.app.fragments.*;
+import com.fsmoking.app.ui.dashboard.DashboardFragment;
+import com.fsmoking.app.ui.history.HistoryFragment;
+import com.fsmoking.app.ui.statistics.StatisticsFragment;
 
 public class MainActivity extends AppCompatActivity {
-
-    private BottomNavigationView bottomNav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bottomNav = findViewById(R.id.bottom_nav);
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
 
-        // Load home by default
-        loadFragment(new HomeFragment());
+        if (savedInstanceState == null) {
+            loadFragment(new DashboardFragment());
+        }
 
         bottomNav.setOnItemSelectedListener(item -> {
-            Fragment fragment = null;
+            Fragment fragment;
             int id = item.getItemId();
-
-            if (id == R.id.nav_home) {
-                fragment = new HomeFragment();
-            } else if (id == R.id.nav_sos) {
-                fragment = new SOSFragment();
-            } else if (id == R.id.nav_health) {
-                fragment = new HealthFragment();
-            } else if (id == R.id.nav_badges) {
-                fragment = new BadgesFragment();
-            } else if (id == R.id.nav_settings) {
-                fragment = new SettingsFragment();
+            if (id == R.id.nav_history) {
+                fragment = new HistoryFragment();
+            } else if (id == R.id.nav_statistics) {
+                fragment = new StatisticsFragment();
+            } else {
+                fragment = new DashboardFragment();
             }
-
-            if (fragment != null) {
-                loadFragment(fragment);
-                return true;
-            }
-            return false;
+            loadFragment(fragment);
+            return true;
         });
     }
 
