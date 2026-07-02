@@ -11,9 +11,13 @@
     <item
         android:id="@+id/nav_statistics"
         android:icon="@android:drawable/ic_menu_sort_by_size"
-        android:title="Statistics"/>
+        android:title="Stats"/>
     <item
         android:id="@+id/nav_health"
         android:icon="@android:drawable/ic_menu_info_details"
         android:title="Health"/>
+    <item
+        android:id="@+id/nav_achievements"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:title="Awards"/>
 </menu>
