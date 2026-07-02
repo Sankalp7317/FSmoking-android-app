@@ -21,7 +21,7 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.fsmoking.app.R;
-import com.fsmoking.app.data.dao.CigaretteDao;
+import com.fsmoking.app.data.DaoModels;
 import com.fsmoking.app.viewmodel.StatisticsViewModel;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -139,13 +139,13 @@ public class StatisticsFragment extends Fragment {
         });
     }
 
-    private void render7DaysChart(List<CigaretteDao.DayCount> dayCounts) {
+    private void render7DaysChart(List<DaoModels.DayCount> dayCounts) {
         // Build a full 7-day map (fills 0 for missing days)
         String[] dayLabels = {"Mon","Tue","Wed","Thu","Fri","Sat","Sun"};
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
 
         Map<String, Integer> countMap = new HashMap<>();
-        for (CigaretteDao.DayCount dc : dayCounts) countMap.put(dc.day, dc.count);
+        for (DaoModels.DayCount dc : dayCounts) countMap.put(dc.day, dc.count);
 
         List<BarEntry> entries = new ArrayList<>();
         Calendar cal = Calendar.getInstance();
@@ -173,7 +173,7 @@ public class StatisticsFragment extends Fragment {
         barChart7Days.invalidate();
     }
 
-    private void render30DaysChart(List<CigaretteDao.DayCount> dayCounts) {
+    private void render30DaysChart(List<DaoModels.DayCount> dayCounts) {
         List<Entry> entries = new ArrayList<>();
         List<String> labels = new ArrayList<>();
 
@@ -181,7 +181,7 @@ public class StatisticsFragment extends Fragment {
         SimpleDateFormat keyFmt   = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
 
         Map<String, Integer> countMap = new HashMap<>();
-        for (CigaretteDao.DayCount dc : dayCounts) countMap.put(dc.day, dc.count);
+        for (DaoModels.DayCount dc : dayCounts) countMap.put(dc.day, dc.count);
 
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DAY_OF_MONTH, -29);
@@ -212,9 +212,9 @@ public class StatisticsFragment extends Fragment {
         lineChart30Days.invalidate();
     }
 
-    private void renderPeakHoursChart(List<CigaretteDao.HourCount> hourCounts) {
+    private void renderPeakHoursChart(List<DaoModels.HourCount> hourCounts) {
         Map<Integer, Integer> countMap = new HashMap<>();
-        for (CigaretteDao.HourCount hc : hourCounts) {
+        for (DaoModels.HourCount hc : hourCounts) {
             countMap.put(Integer.parseInt(hc.hour), hc.count);
         }
 

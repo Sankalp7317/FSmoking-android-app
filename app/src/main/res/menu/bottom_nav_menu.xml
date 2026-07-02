@@ -12,4 +12,8 @@
         android:id="@+id/nav_statistics"
         android:icon="@android:drawable/ic_menu_sort_by_size"
         android:title="Statistics"/>
+    <item
+        android:id="@+id/nav_health"
+        android:icon="@android:drawable/ic_menu_info_details"
+        android:title="Health"/>
 </menu>

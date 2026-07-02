@@ -5,8 +5,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import com.fsmoking.app.data.dao.CigaretteDao;
 import com.fsmoking.app.data.AppDatabase;
+import com.fsmoking.app.data.DaoModels;
 import com.fsmoking.app.repository.CigaretteRepository;
 import com.fsmoking.app.repository.SettingsRepository;
 import com.fsmoking.app.util.DateUtils;
@@ -16,9 +16,9 @@ import java.util.List;
 public class StatisticsViewModel extends AndroidViewModel {
 
     public static class StatsData {
-        public List<CigaretteDao.DayCount> last7Days;
-        public List<CigaretteDao.DayCount> last30Days;
-        public List<CigaretteDao.HourCount> peakHours;
+        public List<DaoModels.DayCount> last7Days;
+        public List<DaoModels.DayCount> last30Days;
+        public List<DaoModels.HourCount> peakHours;
         public int totalThisMonth;
         public int totalThisWeek;
         public int totalAllTime;
@@ -77,13 +77,13 @@ public class StatisticsViewModel extends AndroidViewModel {
             // Avg per day (last 30 days, only days with data)
             int daysWithData = data.last30Days.size();
             int totalLast30 = 0;
-            for (CigaretteDao.DayCount dc : data.last30Days) totalLast30 += dc.count;
+            for (DaoModels.DayCount dc : data.last30Days) totalLast30 += dc.count;
             data.avgPerDay = daysWithData > 0 ? (double) totalLast30 / daysWithData : 0;
 
             // Best and worst day (last 30 days)
             data.bestDayCount  = Integer.MAX_VALUE;
             data.worstDayCount = 0;
-            for (CigaretteDao.DayCount dc : data.last30Days) {
+            for (DaoModels.DayCount dc : data.last30Days) {
                 if (dc.count < data.bestDayCount) data.bestDayCount = dc.count;
                 if (dc.count > data.worstDayCount) data.worstDayCount = dc.count;
             }
@@ -96,7 +96,7 @@ public class StatisticsViewModel extends AndroidViewModel {
             // Peak hour label
             int peakCount = 0;
             String peakHour = "—";
-            for (CigaretteDao.HourCount hc : data.peakHours) {
+            for (DaoModels.HourCount hc : data.peakHours) {
                 if (hc.count > peakCount) {
                     peakCount = hc.count;
                     int h = Integer.parseInt(hc.hour);

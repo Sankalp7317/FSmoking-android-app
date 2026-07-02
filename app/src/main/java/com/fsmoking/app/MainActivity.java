@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.fsmoking.app.ui.dashboard.DashboardFragment;
+import com.fsmoking.app.ui.health.HealthFragment;
 import com.fsmoking.app.ui.history.HistoryFragment;
 import com.fsmoking.app.ui.statistics.StatisticsFragment;
 
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
                 fragment = new HistoryFragment();
             } else if (id == R.id.nav_statistics) {
                 fragment = new StatisticsFragment();
+            } else if (id == R.id.nav_health) {
+                fragment = new HealthFragment();
             } else {
                 fragment = new DashboardFragment();
             }

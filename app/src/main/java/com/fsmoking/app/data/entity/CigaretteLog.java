@@ -1,32 +1,58 @@
-import androidx.room.Query;
+package com.fsmoking.app.data.entity;
 
-// Returns count of cigarettes grouped by hour (0-23) for a given period
-@Query("SELECT strftime('%H', datetime(timestamp/1000, 'unixepoch', 'localtime')) as hour, " +
-        "COUNT(*) as count FROM cigarette_log " +
-        "WHERE timestamp BETWEEN :start AND :end " +
-        "GROUP BY hour ORDER BY hour ASC")
-List<HourCount> getHourlyCountSync(long start, long end);
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+import java.util.Date;
 
-// Returns count per day for a given period
-@Query("SELECT strftime('%Y-%m-%d', datetime(timestamp/1000, 'unixepoch', 'localtime')) as day, " +
-        "COUNT(*) as count FROM cigarette_log " +
-        "WHERE timestamp BETWEEN :start AND :end " +
-        "GROUP BY day ORDER BY day ASC")
-List<DayCount> getDailyCountSync(long start, long end);
+@Entity(tableName = "cigarette_log")
+public class CigaretteLog {
 
-@Query("SELECT COUNT(*) FROM cigarette_log WHERE timestamp BETWEEN :start AND :end")
-int getTotalCountSync(long start, long end);
+    @PrimaryKey(autoGenerate = true)
+    private long id;
 
-@Query("SELECT COUNT(*) FROM cigarette_log")
-LiveData<Integer> getTotalAllTimeLive();
+    @NonNull
+    @ColumnInfo(name = "timestamp")
+    private Date timestamp;
 
-// Simple data classes for grouped queries
-class HourCount {
-    public String hour;
-    public int count;
-}
+    @ColumnInfo(name = "mood")
+    private String mood;
 
-class DayCount {
-    public String day;
-    public int count;
+    @ColumnInfo(name = "trigger")
+    private String trigger;
+
+    @ColumnInfo(name = "location")
+    private String location;
+
+    @ColumnInfo(name = "note")
+    private String note;
+
+    public CigaretteLog(@NonNull Date timestamp, String mood, String trigger,
+                        String location, String note) {
+        this.timestamp = timestamp;
+        this.mood = mood;
+        this.trigger = trigger;
+        this.location = location;
+        this.note = note;
+    }
+
+    public long getId() { return id; }
+    public void setId(long id) { this.id = id; }
+
+    @NonNull
+    public Date getTimestamp() { return timestamp; }
+    public void setTimestamp(@NonNull Date timestamp) { this.timestamp = timestamp; }
+
+    public String getMood() { return mood; }
+    public void setMood(String mood) { this.mood = mood; }
+
+    public String getTrigger() { return trigger; }
+    public void setTrigger(String trigger) { this.trigger = trigger; }
+
+    public String getLocation() { return location; }
+    public void setLocation(String location) { this.location = location; }
+
+    public String getNote() { return note; }
+    public void setNote(String note) { this.note = note; }
 }
