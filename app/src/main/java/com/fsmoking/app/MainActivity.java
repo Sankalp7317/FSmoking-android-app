@@ -8,7 +8,7 @@ import com.fsmoking.app.ui.achievements.AchievementsFragment;
 import com.fsmoking.app.ui.dashboard.DashboardFragment;
 import com.fsmoking.app.ui.health.HealthFragment;
 import com.fsmoking.app.ui.history.HistoryFragment;
-import com.fsmoking.app.ui.statistics.StatisticsFragment;
+import com.fsmoking.app.ui.settings.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,12 +28,12 @@ public class MainActivity extends AppCompatActivity {
             int id = item.getItemId();
             if (id == R.id.nav_history) {
                 fragment = new HistoryFragment();
-            } else if (id == R.id.nav_statistics) {
-                fragment = new StatisticsFragment();
             } else if (id == R.id.nav_health) {
                 fragment = new HealthFragment();
             } else if (id == R.id.nav_achievements) {
                 fragment = new AchievementsFragment();
+            } else if (id == R.id.nav_settings) {
+                fragment = new SettingsFragment();
             } else {
                 fragment = new DashboardFragment();
             }
@@ -48,5 +48,9 @@ public class MainActivity extends AppCompatActivity {
                 .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                 .replace(R.id.fragment_container, fragment)
                 .commit();
+    }
+
+    public void navigateTo(Fragment fragment) {
+        loadFragment(fragment);
     }
 }

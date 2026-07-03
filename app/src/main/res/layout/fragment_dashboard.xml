@@ -17,15 +17,40 @@
             android:padding="20dp"
             android:paddingBottom="100dp">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/dashboard_title"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:textColor="@color/text_primary"
-                android:layout_marginBottom="16dp"/>
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dashboard"
+                        android:textSize="26sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_dashboard_date"
+                        android:textSize="13sp"
+                        android:textColor="@color/text_secondary"/>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🚬"
+                    android:textSize="28sp"/>
+            </LinearLayout>
 
+            <!-- Smoke-free timer card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -44,27 +69,29 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/smoke_free_label"
+                        android:text="⏱️  Smoke-free for"
                         android:textSize="13sp"
                         android:textColor="@color/primary_dark"
-                        android:layout_marginBottom="4dp"/>
+                        android:layout_marginBottom="6dp"/>
                     <TextView
                         android:id="@+id/tv_smoke_free_timer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="00h 00m 00s"
-                        android:textSize="26sp"
+                        android:textSize="30sp"
                         android:textStyle="bold"
                         android:textColor="@color/primary_dark"
                         android:fontFamily="monospace"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Today progress card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/surface"
                 app:strokeColor="@color/border"
                 app:strokeWidth="1dp"
                 android:layout_marginBottom="12dp">
@@ -82,7 +109,7 @@
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="wrap_content"
-                            android:text="@string/today_label"
+                            android:text="📅  Today"
                             android:textSize="13sp"
                             android:textStyle="bold"
                             android:textColor="@color/text_secondary"/>
@@ -98,68 +125,87 @@
                         android:id="@+id/progress_today"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:trackThickness="8dp"
-                        app:trackCornerRadius="4dp"
+                        app:trackThickness="10dp"
+                        app:trackCornerRadius="5dp"
                         app:indicatorColor="@color/progress_fill_safe"
                         app:trackColor="@color/progress_track"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Stats row 1 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginBottom="10dp">
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp" android:layout_weight="1"
-                    android:layout_height="wrap_content" android:layout_marginEnd="6dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
                     app:cardCornerRadius="16dp" app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/surface"
                     app:strokeColor="@color/border" app:strokeWidth="1dp">
                     <LinearLayout android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical" android:padding="14dp">
                         <TextView android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/this_week_label"
+                            android:text="This Week"
                             android:textSize="11sp" android:textColor="@color/text_muted"
                             android:layout_marginBottom="4dp"/>
                         <TextView android:id="@+id/tv_week_count"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0" android:textSize="22sp"
+                            android:text="0" android:textSize="24sp"
                             android:textStyle="bold" android:textColor="@color/text_primary"/>
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="cigarettes"
+                            android:textSize="11sp" android:textColor="@color/text_muted"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp" android:layout_weight="1"
-                    android:layout_height="wrap_content" android:layout_marginStart="6dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
                     app:cardCornerRadius="16dp" app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/surface"
                     app:strokeColor="@color/border" app:strokeWidth="1dp">
                     <LinearLayout android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical" android:padding="14dp">
                         <TextView android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/this_month_label"
+                            android:text="This Month"
                             android:textSize="11sp" android:textColor="@color/text_muted"
                             android:layout_marginBottom="4dp"/>
                         <TextView android:id="@+id/tv_month_count"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0" android:textSize="22sp"
+                            android:text="0" android:textSize="24sp"
                             android:textStyle="bold" android:textColor="@color/text_primary"/>
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="cigarettes"
+                            android:textSize="11sp" android:textColor="@color/text_muted"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+
             </LinearLayout>
 
+            <!-- Stats row 2 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="16dp">
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp" android:layout_weight="1"
-                    android:layout_height="wrap_content" android:layout_marginEnd="6dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
                     app:cardCornerRadius="16dp" app:cardElevation="0dp"
                     app:cardBackgroundColor="@color/primary_light"
                     app:strokeColor="@color/primary_border" app:strokeWidth="1dp">
@@ -168,7 +214,7 @@
                         android:orientation="vertical" android:padding="14dp">
                         <TextView android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/money_spent_today_label"
+                            android:text="💰  Spent Today"
                             android:textSize="11sp" android:textColor="@color/text_muted"
                             android:layout_marginBottom="4dp"/>
                         <TextView android:id="@+id/tv_money_spent_today"
@@ -178,17 +224,20 @@
                             android:textStyle="bold" android:textColor="@color/primary_dark"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp" android:layout_weight="1"
-                    android:layout_height="wrap_content" android:layout_marginStart="6dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
                     app:cardCornerRadius="16dp" app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/surface"
                     app:strokeColor="@color/border" app:strokeWidth="1dp">
                     <LinearLayout android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical" android:padding="14dp">
                         <TextView android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/avg_interval_label"
+                            android:text="⏱️  Avg Interval"
                             android:textSize="11sp" android:textColor="@color/text_muted"
                             android:layout_marginBottom="4dp"/>
                         <TextView android:id="@+id/tv_avg_interval"
@@ -198,18 +247,76 @@
                             android:textStyle="bold" android:textColor="@color/text_primary"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+
             </LinearLayout>
+
+            <!-- Quick Stats section title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📊  Quick Statistics"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="10dp"/>
+
+            <!-- Mini bar chart card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/surface"
+                app:strokeColor="@color/border"
+                app:strokeWidth="1dp"
+                android:layout_marginBottom="12dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="This week — cigarettes per day"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginBottom="8dp"/>
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/chart_dashboard_week"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Insights section title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="💡  Smart Insights"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="10dp"/>
+
+            <!-- Insights container -->
+            <LinearLayout
+                android:id="@+id/dashboard_insights_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"/>
 
         </LinearLayout>
     </ScrollView>
 
+    <!-- FAB -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_log_cigarette"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="24dp"
-        android:contentDescription="@string/log_cigarette_fab_desc"
+        android:contentDescription="Log a cigarette"
         android:src="@drawable/ic_add"
         app:backgroundTint="@color/fab_color"
         app:tint="@android:color/white"/>

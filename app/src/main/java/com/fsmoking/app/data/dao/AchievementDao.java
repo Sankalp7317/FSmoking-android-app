@@ -30,4 +30,7 @@ public interface AchievementDao {
     @Query("SELECT COUNT(*) FROM achievement")
     int getTotalCountSync();
 
+    @Query("SELECT * FROM achievement")
+    List<Achievement> getAllSync();
+
 }

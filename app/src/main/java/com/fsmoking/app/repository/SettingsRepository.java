@@ -78,4 +78,15 @@ public class SettingsRepository {
     public void setOnboardingDone(boolean done) {
         prefs.edit().putBoolean(KEY_ONBOARDING_DONE, done).apply();
     }
+
+    private static final String KEY_DARK_MODE = "dark_mode";
+
+    public int getThemeMode() {
+        // 0 = follow system, 1 = light, 2 = dark
+        return prefs.getInt(KEY_DARK_MODE, 0);
+    }
+
+    public void setThemeMode(int mode) {
+        prefs.edit().putInt(KEY_DARK_MODE, mode).apply();
+    }
 }

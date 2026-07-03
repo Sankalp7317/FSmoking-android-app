@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand (stays the same in dark mode) -->
+    <color name="primary">#1D9E75</color>
+    <color name="primary_dark">#5DCAA5</color>
+    <color name="primary_light">#0D3D2E</color>
+    <color name="primary_border">#1D9E75</color>
+    <color name="danger">#FF6B47</color>
+    <color name="danger_light">#3D1A0F</color>
+    <color name="accent">#5B9BD5</color>
+    <color name="accent_light">#0F2340</color>
+    <color name="amber">#F0A830</color>
+    <color name="amber_light">#3D2A00</color>
+
+    <!-- Neutrals (dark mode) -->
+    <color name="bg">#0F1A14</color>
+    <color name="surface">#1A2820</color>
+    <color name="surface_alt">#243020</color>
+    <color name="border">#2E4038</color>
+    <color name="text_primary">#E8F5F0</color>
+    <color name="text_secondary">#9DC4B0</color>
+    <color name="text_muted">#5A8070</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- Chart / Progress -->
+    <color name="progress_track">#2E4038</color>
+    <color name="progress_fill_safe">#1D9E75</color>
+    <color name="progress_fill_warning">#F0A830</color>
+    <color name="progress_fill_danger">#FF6B47</color>
+
+    <!-- FAB -->
+    <color name="fab_color">#1D9E75</color>
+</resources>

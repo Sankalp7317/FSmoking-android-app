@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="20dp"
+        android:paddingBottom="40dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -21,13 +22,15 @@
             android:textColor="@color/text_primary"
             android:layout_marginBottom="20dp"/>
 
+        <!-- Theme section -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="YOUR DATA"
+            android:text="APPEARANCE"
             android:textSize="11sp"
             android:textColor="@color/text_muted"
-            android:layout_marginBottom="8dp"/>
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="10dp"/>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -35,100 +38,6 @@
             app:cardCornerRadius="16dp"
             app:cardElevation="0dp"
             app:strokeColor="@color/border"
-            app:strokeWidth="1dp"
-            android:layout_marginBottom="10dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Quit Date"
-                    android:textSize="13sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/text_primary"
-                    android:layout_marginBottom="2dp"/>
-                <TextView
-                    android:id="@+id/tv_quit_date_value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="—"
-                    android:textSize="13sp"
-                    android:textColor="@color/text_secondary"/>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="0dp"
-            app:strokeColor="@color/border"
-            app:strokeWidth="1dp"
-            android:layout_marginBottom="10dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Smoking Habit"
-                    android:textSize="13sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/text_primary"
-                    android:layout_marginBottom="2dp"/>
-                <TextView
-                    android:id="@+id/tv_cpd_value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="—"
-                    android:textSize="13sp"
-                    android:textColor="@color/text_secondary"/>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="0dp"
-            app:strokeColor="@color/border"
-            app:strokeWidth="1dp"
-            android:layout_marginBottom="10dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Pack Cost"
-                    android:textSize="13sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/text_primary"
-                    android:layout_marginBottom="2dp"/>
-                <TextView
-                    android:id="@+id/tv_pack_cost_value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="—"
-                    android:textSize="13sp"
-                    android:textColor="@color/text_secondary"/>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="0dp"
-            app:cardBackgroundColor="@color/primary_light"
-            app:strokeColor="@color/primary_border"
             app:strokeWidth="1dp"
             android:layout_marginBottom="20dp">
             <LinearLayout
@@ -136,51 +45,196 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total Saved 💰"
+                    android:text="Theme"
                     android:textSize="13sp"
                     android:textStyle="bold"
-                    android:textColor="@color/primary_dark"
-                    android:layout_marginBottom="2dp"/>
-                <TextView
-                    android:id="@+id/tv_total_saved_value"
-                    android:layout_width="wrap_content"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginBottom="12dp"/>
+
+                <RadioGroup
+                    android:id="@+id/rg_theme"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="—"
-                    android:textSize="13sp"
-                    android:textColor="@color/primary_dark"/>
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/rb_theme_system"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Follow system"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginBottom="8dp"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_theme_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Light"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginBottom="8dp"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_theme_dark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dark"
+                        android:textColor="@color/text_secondary"/>
+
+                </RadioGroup>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+        <!-- Preferences section -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DANGER ZONE"
+            android:text="PREFERENCES"
             android:textSize="11sp"
             android:textColor="@color/text_muted"
-            android:layout_marginBottom="8dp"/>
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="10dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/border"
+            app:strokeWidth="1dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Currency symbol"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginBottom="6dp"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_currency"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:background="@color/surface_alt"
+                    android:paddingStart="14dp"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="14dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pack price"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginBottom="6dp"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_pack_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:background="@color/surface_alt"
+                    android:inputType="numberDecimal"
+                    android:paddingStart="14dp"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="14dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cigarettes per pack"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginBottom="6dp"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_cigs_per_pack"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:background="@color/surface_alt"
+                    android:inputType="number"
+                    android:paddingStart="14dp"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="14dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Daily goal (cigarettes)"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginBottom="6dp"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_daily_goal"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:background="@color/surface_alt"
+                    android:inputType="number"
+                    android:paddingStart="14dp"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_reset"
+            android:id="@+id/btn_save_settings"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Save Settings"
+            android:backgroundTint="@color/primary"
+            android:textColor="@color/white"
+            app:cornerRadius="14dp"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Data section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DATA"
+            android:textSize="11sp"
+            android:textColor="@color/text_muted"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="10dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_export_csv"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="📤  Export to CSV"
+            android:backgroundTint="@color/accent_light"
+            android:textColor="@color/accent"
+            app:strokeColor="#B5D4F4"
+            app:strokeWidth="1dp"
+            app:cornerRadius="14dp"
+            android:layout_marginBottom="10dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_reset_data"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:text="🗑️  Reset All Data"
+            android:backgroundTint="@color/danger_light"
             android:textColor="@color/danger"
-            app:backgroundTint="@color/danger_light"
             app:strokeColor="@color/danger"
-            app:strokeWidth="2dp"
+            app:strokeWidth="1dp"
             app:cornerRadius="14dp"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="24dp"/>
 
+        <!-- About section -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ABOUT"
             android:textSize="11sp"
             android:textColor="@color/text_muted"
-            android:layout_marginBottom="8dp"/>
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="10dp"/>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -205,7 +259,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Free forever · No ads · Works offline\nBuilt natively in Java for Android"
+                    android:text="Track your smoking. Understand your habits. Quit for good."
                     android:textSize="13sp"
                     android:textColor="@color/text_secondary"
                     android:lineSpacingMultiplier="1.4"
@@ -213,9 +267,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Made with ❤️ to help the world quit smoking"
-                    android:textSize="13sp"
-                    android:textColor="@color/primary_dark"
+                    android:text="Built natively in Java for Android."
+                    android:textSize="12sp"
+                    android:textColor="@color/text_muted"
                     android:textStyle="italic"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
